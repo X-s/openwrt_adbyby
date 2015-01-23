@@ -17,4 +17,8 @@ chmod a+x /usr/bin/adbyby/adbyby
 echo "Start adbyby"
 /usr/bin/adbyby/adbyby &
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8118
+echo "Add service to init.d"
+curl https://raw.githubusercontent.com/X-s/openwrt_adbyby/master/init_adbyby > init_adbyby
+mv init_adbyby /etc/init.d/adbyby
+chmod a+x /etc/init.d/adbyby
 echo "Done!"
