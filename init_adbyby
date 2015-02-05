@@ -3,6 +3,10 @@
 START=90
 STOP=90
 
+stop() {
+        iptables -t nat -D PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8118
+}
+
 start() {
         /usr/bin/adbyby/adbyby &
         iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8118
