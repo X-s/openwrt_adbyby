@@ -1,7 +1,6 @@
 #!/bin/sh /etc/rc.common
-# Copyright (C) 2014-2014 Xs
+# Copyright (C) 2014-2015 Xs
 START=90
-STOP=90
 
 stop() {
         iptables -t nat -D PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8118
